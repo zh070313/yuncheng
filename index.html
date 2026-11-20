@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运城 - NFC山西旅游攻略</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", serif;
+        }
+        body {
+            background-color: #fef9f2;
+            color: #5a3e2b;
+            line-height: 1.6;
+            padding-bottom: 30px;
+        }
+        .header {
+            background-color: #f8e9d1;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e6c9a8;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #8b4513;
+            margin-bottom: 5px;
+        }
+        .header p {
+            font-size: 14px;
+            color: #a0522d;
+        }
+        .tab-bar {
+            display: flex;
+            background-color: #f5e6d3;
+            border-bottom: 1px solid #e6c9a8;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: none;
+            font-size: 16px;
+            color: #8b4513;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab-btn.active {
+            background-color: #f8d7a9;
+            font-weight: bold;
+            border-bottom: 3px solid #d2691e;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .section-title {
+            font-size: 22px;
+            color: #8b4513;
+            margin: 20px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #d2691e;
+        }
+        .item-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
+            overflow: hidden;
+        }
+        .item-card img {
+            width: 100%;
+            max-height: 300px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .item-card h3 {
+            font-size: 18px;
+            color: #8b4513;
+            margin-bottom: 8px;
+        }
+        .item-card p {
+            font-size: 14px;
+            color: #6b4423;
+        }
+        .dialect-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .dialect-item {
+            background-color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(139, 69, 19, 0.1);
+        }
+        .dialect-word {
+            font-size: 16px;
+            font-weight: bold;
+            color: #8b4513;
+        }
+        .dialect-pinyin {
+            font-size: 13px;
+            color: #a0522d;
+            margin: 3px 0;
+        }
+        .dialect-mean {
+            font-size: 14px;
+            color: #6b4423;
+        }
+        .culture-intro {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
+        }
+        @media (max-width: 768px) {
+            .dialect-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>运城市</h1>
+        <p>关公故里 · 华夏之根</p>
+    </div>
+
+    <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('route')">旅游路线</button>
+        <button class="tab-btn" onclick="switchTab('dialect')">人文方言</button>
+        <button class="tab-btn" onclick="switchTab('culture')">习俗非遗</button>
+    </div>
+
+    <!-- 旅游路线模块 -->
+    <div id="route" class="tab-content active">
+        <h2 class="section-title">常规旅游路线</h2>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/wK6Rwq6ea5" alt="解州关帝庙">
+            <h3>解州关帝庙</h3>
+            <p>关公的祖庙，中国的武庙之祖，祭祀关羽的地方，古建保存完好，感受关公的文化与运城的历史，也是武庙的核心。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/r7j4oi6uBq" alt="永乐宫">
+            <h3>永乐宫</h3>
+            <p>道教的祖庭，元代的古建，壁画都是国宝，三清殿的壁画更是精美，感受道教的文化与运城的历史，也是道教的圣地。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/ANUoXKAKsw" alt="普救寺">
+            <h3>普救寺</h3>
+            <p>西厢记的故事发生地，莺莺塔的古建，是爱情的圣地，感受西厢记的文化与运城的历史，也是晋南的名胜。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/udL9O8DuCz" alt="鹳雀楼">
+            <h3>鹳雀楼</h3>
+            <p>中国的四大名楼之一，欲穷千里目，更上一层楼的诗句在这里，感受唐诗的文化与运城的历史，也是名楼的代表。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/DqVVtyVx5C" alt="运城盐湖">
+            <h3>运城盐湖</h3>
+            <p>中国的死海，七彩的盐湖，漂浮的体验，是运城的特色景区，感受盐湖的风光与运城的盐文化，也是晋南的名胜。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/lhDrftNDW0" alt="运城古城">
+            <h3>运城古城</h3>
+            <p>河东的古城，古城里的古建保存完好，鼓楼的古建都是国宝，古城的烟火气浓厚，晚上的古城更是灯火辉煌，感受古城的烟火气与历史。</p>
+        </div>
+
+        <h2 class="section-title">红色研学路线</h2>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/FWbVsX5VOS" alt="晋绥边区革命纪念馆">
+            <h3>晋绥边区革命纪念馆</h3>
+            <p>记录了晋绥边区的革命历程，这里是晋绥抗日根据地的核心，感悟革命先辈的奉献，传承红色精神，是红色教育的基地。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/QRvZPZ2zie" alt="红军东征纪念馆">
+            <h3>红军东征纪念馆</h3>
+            <p>记录了红军东征的历程，这里是红军东征的核心，感悟革命先辈的奉献，传承红色精神，是红色教育的基地。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/tkBaHtVffx" alt="平型关大捷纪念馆">
+            <h3>平型关大捷纪念馆</h3>
+            <p>记录了平型关大捷的历程，这里是平型关大捷的核心，感悟革命先辈的奉献，传承红色精神，是红色教育的基地。</p>
+        </div>
+    </div>
+
+    <!-- 人文方言模块 -->
+    <div id="dialect" class="tab-content">
+        <div class="culture-intro">
+            <h3>方言片区</h3>
+            <p>运城方言属晋语汾河片，保留了晋语的入声，是晋南地区的特色方言，各区县口音差异较大，承载着河东的语言文化与历史记忆。</p>
+        </div>
+
+        <h2 class="section-title">本地方言词句</h2>
+        <div class="dialect-list">
+            <div class="dialect-item">
+                <div class="dialect-word">圪捣</div>
+                <div class="dialect-pinyin">gē dǎo</div>
+                <div class="dialect-mean">释义：捣乱、折腾</div>
+            </div>
+            <div class="dialect-item">
+                <div class="dialect-word">圪溜</div>
+                <div class="dialect-pinyin">gē liū</div>
+                <div class="dialect-mean">释义：溜达、闲逛</div>
+            </div>
+            <div class="dialect-item">
+                <div class="dialect-word">日脏</div>
+                <div class="dialect-pinyin">rì zāng</div>
+                <div class="dialect-mean">释义：脏、不干净</div>
+            </div>
+            <div class="dialect-item">
+                <div class="dialect-word">夜来</div>
+                <div class="dialect-pinyin">yè lái</div>
+                <div class="dialect-mean">释义：昨天</div>
+            </div>
+            <div class="dialect-item">
+                <div class="dialect-word">不赖</div>
+                <div class="dialect-pinyin">bù lài</div>
+                <div class="dialect-mean">释义：不错、挺好</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">人文情怀</h2>
+        <div class="culture-intro">
+            <p>运城是华夏的根脉，河东的宝地，这里的百姓既有河东人的精明，又有黄河人的坚韧。关公的文化在这里传承，黄河的文化在这里延续，永乐宫的壁画，西厢记的故事，鹳雀楼的诗句，都在这里留下了印记。一代代运城人，用自己的双手，把河东的资源变成了发展的动力，也传承着这份厚重的文化与精神。</p>
+        </div>
+    </div>
+
+    <!-- 习俗非遗模块 -->
+    <div id="culture" class="tab-content">
+        <h2 class="section-title">特色美食</h2>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/QTOSravc6k" alt="闻喜煮饼">
+            <h3>闻喜煮饼</h3>
+            <p>闻喜的特色小吃，用面粉、芝麻制作，炸制而成，软糯香甜，能拉出金丝，是当地人的最爱，也是运城的特色小吃，深受百姓喜爱。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/VnSv6pQKyA" alt="稷山麻花">
+            <h3>稷山麻花</h3>
+            <p>稷山的特色小吃，用面粉制作，炸制而成，酥脆可口，咸香适中，是当地人的最爱，也是运城的特色小吃，深受百姓喜爱。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/Go98mjh1Xj" alt="解州羊肉泡馍">
+            <h3>解州羊肉泡馍</h3>
+            <p>解州的特色美食，用羊肉、馍制作，熬制而成，汤鲜而不膻，馍香而不烂，是当地人的早餐最爱，也是运城的特色小吃，深受百姓喜爱。</p>
+        </div>
+
+        <h2 class="section-title">非遗项目</h2>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/oAV4Rxh6rz" alt="晋剧">
+            <h3>晋剧</h3>
+            <p>国家级非物质文化遗产，山西的地方戏曲，曲调悠扬，表演生动，是山西四大梆子之一，深受百姓喜爱，是运城的传统艺术。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/49qE6p3zEj" alt="蒲剧">
+            <h3>蒲剧</h3>
+            <p>国家级非物质文化遗产，蒲州的地方戏曲，曲调高亢，表演生动，是山西四大梆子之一，深受百姓喜爱，是运城的传统艺术。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/p7YU4fgB5D" alt="运城剪纸">
+            <h3>运城剪纸</h3>
+            <p>省级非物质文化遗产，运城的传统剪纸，色彩明艳，制作精美，是当地的传统艺术，深受喜爱，也是当地的特色礼品。</p>
+        </div>
+
+        <h2 class="section-title">传统民俗</h2>
+        <div class="culture-intro">
+            <p>运城的传统民俗带着浓浓的河东特色，古城庙会历史悠久，每逢庙会，各地的商贩、艺人齐聚，热闹非凡；元宵节的闹红火更是热闹，蒲剧、锣鼓、社火表演应有尽有。关公的祭祖习俗代代传承，黄河的文化更是深深融入了运城人的血脉，展现了运城人的质朴与坚韧，也传承着这份厚重的华夏文化。</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // 隐藏所有内容
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(item => {
+                item.classList.remove('active');
+            });
+            // 取消所有按钮的激活状态
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(item => {
+                item.classList.remove('active');
+            });
+            // 激活当前的
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
